@@ -29,7 +29,7 @@ jobs:
 
     - name: Run tests
       run: |
-        pip install pytest pytest-cov
+        pip install -r requirements.txt
         pytest --cov=src tests/
 
     - name: Publish to PyPI

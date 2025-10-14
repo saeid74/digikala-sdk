@@ -27,6 +27,11 @@ jobs:
       run: |
         python -m build
 
+    - name: Run tests
+      run: |
+        pip install pytest pytest-cov
+        pytest --cov=src tests/
+
     - name: Publish to PyPI
       env:
         TWINE_USERNAME: __token__

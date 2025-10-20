@@ -243,7 +243,6 @@ class ActiveProduct(BaseModel):
         }
         ```
     """
-    is_inactive: Literal[False] = False
     id: int
     title_fa: str
     title_en: str
@@ -295,11 +294,7 @@ class ActiveProduct(BaseModel):
 
 
 # Discriminated union for product details based on inactive status
-ProductDetail = Annotated[
-    Union[InactiveProduct, ActiveProduct],
-    Field(discriminator="is_inactive")
-]
-
+ProductDetail = Union[InactiveProduct, ActiveProduct]
 
 class ProductDetailData(BaseModel):
     """Data container for product detail response."""
